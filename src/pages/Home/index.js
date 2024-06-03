@@ -1,5 +1,7 @@
 import React from "react";
 
+import ImagemFerrari from "../../assets/images/ferrari.jpg";
+
 export default function Home() {
   return (
     <main className="bg-gray-900 text-white p-6">
@@ -11,13 +13,13 @@ export default function Home() {
               Bem-vindo à WBM Locadora - sua escolha inteligente para aluguel de
               veículos!
             </h2>
-            <p className="mt-4">
+            <p className="mt-3">
               Na WBM Locadora, estamos comprometidos em proporcionar a você a
               melhor experiência de aluguel de veículos. Seja para viagens de
               negócios, passeios em família ou aventuras individuais, estamos
               aqui para atender a todas as suas necessidades de mobilidade.
             </p>
-            <h3 className="text-xl mt-6">Por que escolher a WBM Locadora?</h3>
+            <h3 className="text-xl mt-4">Por que escolher a WBM Locadora?</h3>
             <ul className="list-disc list-inside mt-2">
               <li className="mt-2">
                 <strong>Variedade de Veículos:</strong> Oferecemos uma ampla
@@ -31,14 +33,14 @@ export default function Home() {
                 segurança e conforto durante toda a viagem. Priorizamos a
                 qualidade em tudo o que fazemos.
               </li>
-              <li className="mt-2">
+              <li className="mt-1">
                 <strong>Facilidade de Reserva:</strong> Com nosso sistema de
                 reserva online simplificado, você pode reservar seu veículo em
                 poucos cliques, tornando o processo rápido e conveniente. Também
                 oferecemos opções de pagamento flexíveis para atender às suas
                 preferências.
               </li>
-              <li className="mt-2">
+              <li className="mt-1">
                 <strong>Atendimento ao Cliente de Excelência:</strong> Nossa
                 equipe dedicada está sempre pronta para ajudá-lo com qualquer
                 dúvida ou solicitação. Nosso objetivo é tornar sua experiência
@@ -46,14 +48,11 @@ export default function Home() {
                 veículo.
               </li>
             </ul>
-            <p className="mt-4">
-              Explore nosso site para encontrar a frota disponível, verificar
-              preços e fazer sua reserva hoje mesmo. Na WBM Locadora, estamos
-              aqui para tornar sua jornada mais fácil e agradável. Estamos
-              ansiosos para servi-lo em sua próxima aventura!
-            </p>
           </div>
           {/* Coluna Direita */}
+          <div className="w-full md:w-1/2 pt-0 pl-2">
+            <img src={ImagemFerrari} alt="Ferrari" className="mx-auto" />
+          </div>
         </div>
       </div>
     </main>

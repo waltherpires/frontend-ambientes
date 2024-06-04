@@ -4,7 +4,7 @@ import ImagemFerrari from "../../assets/images/ferrari.jpg";
 
 export default function Home() {
   return (
-    <main className="bg-gray-900 text-white p-6">
+    <main className="bg-neutral-900 text-white p-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           {/* Coluna Esquerda */}

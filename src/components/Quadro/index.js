@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const Quadro = styled.div`
   max-width: 400px;
-  background-color: #637289;
+  background-color: #737373;
   color: #ffffff;
   border-radius: 7px;
   padding: 5px;

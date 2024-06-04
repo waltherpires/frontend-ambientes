@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const Titulo = styled.div`
   max-width: 550px;
-  background-color: #8a97aa;
+  background-color: #a3a3a3;
   color: #ffffff;
   border-radius: 3px;
   padding: 5px;

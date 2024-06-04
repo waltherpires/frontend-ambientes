@@ -8,7 +8,7 @@ export default function Home() {
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           {/* Coluna Esquerda */}
-          <div className="w-full md:w-1/2 bg-gray-800 p-4">
+          <div className="w-full md:w-1/2 bg-neutral-700 p-4">
             <h2 className="text-2xl font-bold">
               Bem-vindo à WBM Locadora - sua escolha inteligente para aluguel de
               veículos!

@@ -4,61 +4,58 @@ import Titulo from "../../components/Titulo";
 
 export default function QuemSomos() {
   return (
-    <div className="container mt-2 mx-auto">
-      <div className="row">
-        {/* Seção de Vantagens */}
-        <div className="w-full col-md-6 text-center md:w-1/2">
-          <div>
-            <Titulo>Vantagens</Titulo>
-          </div>
+    <div className="container mt-2 columns-2 gap-1 mx-auto">
+      {/* Seção de Vantagens */}
+      <div className="mx-auto text-center pt-1 bg-slate-200 h-screen">
+        <Titulo className="w-full mx-auto">Vantagens</Titulo>
 
-          <Quadro className="my-1 mx-auto">
-            <p>
-              Frota Variada e Atualizada: A WBM Locadora possui uma ampla
-              variedade de veículos novos e bem cuidados, garantindo que os
-              clientes encontrem o carro ideal para suas necessidades.
-            </p>
-          </Quadro>
+        <Quadro className="my-1 mx-auto">
+          <p>
+            Frota Variada e Atualizada: A WBM Locadora possui uma ampla
+            variedade de veículos novos e bem cuidados, garantindo que os
+            clientes encontrem o carro ideal para suas necessidades.
+          </p>
+        </Quadro>
 
-          <Quadro className="my-1 mx-auto">
-            <p>
-              Atendimento Personalizado: A empresa se destaca pelo atendimento
-              atencioso e personalizado, buscando sempre superar as expectativas
-              dos clientes e garantir uma experiência positiva.
-            </p>
-          </Quadro>
+        <Quadro className="my-1 mx-auto">
+          <p>
+            Atendimento Personalizado: A empresa se destaca pelo atendimento
+            atencioso e personalizado, buscando sempre superar as expectativas
+            dos clientes e garantir uma experiência positiva.
+          </p>
+        </Quadro>
 
-          <Quadro className="my-1 mx-auto">
-            <p>
-              Transparência e Sem Taxas Ocultas: A WBM Locadora oferece
-              condições claras e justas, sem taxas surpresa, proporcionando aos
-              clientes tranquilidade na hora de alugar um veículo.
-            </p>
-          </Quadro>
+        <Quadro className="my-1 mx-auto">
+          <p>
+            Transparência e Sem Taxas Ocultas: A WBM Locadora oferece condições
+            claras e justas, sem taxas surpresa, proporcionando aos clientes
+            tranquilidade na hora de alugar um veículo.
+          </p>
+        </Quadro>
 
-          <Quadro className="my-1 mx-auto">
-            <p>
-              Conveniência na Localização: Com diversas opções de locais para
-              retirada e devolução dos veículos, incluindo aeroportos e pontos
-              estratégicos nas cidades, a WBM Locadora facilita a vida dos
-              clientes, tornando o processo de locação rápido e eficiente.
-            </p>
-          </Quadro>
+        <Quadro className="my-1 mx-auto">
+          <p>
+            Conveniência na Localização: Com diversas opções de locais para
+            retirada e devolução dos veículos, incluindo aeroportos e pontos
+            estratégicos nas cidades, a WBM Locadora facilita a vida dos
+            clientes, tornando o processo de locação rápido e eficiente.
+          </p>
+        </Quadro>
 
-          <Quadro className="my-1 mx-auto">
-            <p>
-              Tecnologia e Facilidade de Reserva: A empresa investe em
-              tecnologia para oferecer um serviço mais ágil e prático,
-              permitindo reservas online e facilitando a comunicação com os
-              clientes, garantindo uma experiência de locação mais moderna e
-              eficiente
-            </p>
-          </Quadro>
-        </div>
+        <Quadro className="my-1 mx-auto">
+          <p>
+            Tecnologia e Facilidade de Reserva: A empresa investe em tecnologia
+            para oferecer um serviço mais ágil e prático, permitindo reservas
+            online e facilitando a comunicação com os clientes, garantindo uma
+            experiência de locação mais moderna e eficiente
+          </p>
+        </Quadro>
+      </div>
 
-        {/* Seção de Quem Somos */}
-        <div className="col-md-6">
-          <h2>Quem Somos</h2>
+      {/* Seção de Quem Somos */}
+      <div className="mx-auto text-center mt-2 pt-1 bg-slate-200 h-screen">
+        <Titulo className="w-full mx-auto">Quem Somos</Titulo>
+        <Quadro className="my-1 mx-auto">
           <p>
             A WBM Locadora é reconhecida como a locadora número um do estado,
             oferecendo serviços de locação de veículos com excelência e
@@ -79,7 +76,7 @@ export default function QuemSomos() {
             escolha para quem busca uma locação de veículos de qualidade,
             tornando cada viagem uma experiência inesquecível.
           </p>
-        </div>
+        </Quadro>
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ const Titulo = styled.div`
   color: #ffffff;
   border-radius: 3px;
   padding: 5px;
-  margin-top: 8px;
 
   font-size: 1.2em;
   text-align: center;

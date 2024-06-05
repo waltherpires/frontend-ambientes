@@ -149,7 +149,7 @@ export default function Carros() {
         {/*lado direito*/}
         <div className="flex flex-col justify-start mx-auto text-center pt-1 min-w-[550px] bg-neutral-700 min-h-full rounded">
           <Titulo className="w-full mx-auto">
-            {modoEdicao ? "Editar Carro" : "AdicionarCarro"}
+            {modoEdicao ? "Editar Carro" : "Adicionar Carro"}
           </Titulo>
           <Formulario
             onSubmit={modoEdicao ? confirmarEdicao : handleSubmitNovoCarro}

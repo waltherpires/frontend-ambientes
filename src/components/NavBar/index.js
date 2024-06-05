@@ -16,21 +16,16 @@ const NavBar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <ul className="flex text-white space-x-4">
               <li>
-                <Link to="/" className="hover:text-gray-300">
-                  Home
-                </Link>
-              </li>
-              <li>
                 <Link to="/carros" className="hover:text-gray-300">
                   Carros
                 </Link>
               </li>
-              <li>
+              <li className="hidden">
                 <Link to="/clientes" className="hover:text-gray-300">
                   Clientes
                 </Link>
               </li>
-              <li>
+              <li className="hidden">
                 <Link to="/reservas" className="hover:text-gray-300">
                   Reservas
                 </Link>
@@ -45,12 +40,12 @@ const NavBar = () => {
                   Contato
                 </Link>
               </li>
-              <li>
+              <li className="hidden">
                 <Link to="/oficina" className="hover:text-gray-300">
                   Oficina
                 </Link>
               </li>
-              <li>
+              <li className="hidden">
                 <Link to="/planos" className="hover:text-gray-300">
                   Planos
                 </Link>

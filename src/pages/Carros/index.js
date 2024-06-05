@@ -15,6 +15,8 @@ export default function Carros() {
     Placa: "",
     Disponibilidade: "",
   });
+  const [modoEdicao, setModoEdicao] = useState(false);
+  const [carroEditando, setCarroEditando] = useState(null);
 
   useEffect(() => {
     getData();
@@ -27,6 +29,47 @@ export default function Carros() {
     } catch (error) {
       console.error("Erro ao carregar veículos:", error);
     }
+  };
+
+  const sairEdicao = (e) => {
+    e.preventDefault();
+
+    setCarroEditando(null);
+    setNovoCarro({
+      Modelo: "",
+      Marca: "",
+      Ano: "",
+      Placa: "",
+      Disponibilidade: "",
+    });
+    setModoEdicao(false);
+  };
+
+  const editarCarro = (carro) => {
+    setCarroEditando(carro);
+    setModoEdicao(true);
+    setNovoCarro(carro);
+  };
+
+  const confirmarEdicao = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.put(`/veiculos/${carroEditando.ID}`, novoCarro);
+      setModoEdicao(false);
+      setNovoCarro({
+        Modelo: "",
+        Marca: "",
+        Ano: "",
+        Placa: "",
+        Disponibilidade: "",
+      });
+      setCarroEditando(null);
+    } catch (error) {
+      console.error("Erro ao editar: ", error);
+    }
+
+    getData();
   };
 
   const handleChangeNovoCarro = (e) => {
@@ -87,14 +130,17 @@ export default function Carros() {
                   ? "Disponivel"
                   : carro.Disponibilidade}
               </p>
-              <Botao className="bg-sky-900">
-                <button>Editar</button>
+              <Botao
+                className="bg-blue-400 hover:bg-blue-700 active:bg-blue-900"
+                onClick={() => editarCarro(carro)}
+              >
+                Editar
               </Botao>
               <Botao
                 onClick={() => deletarCarro(carro.ID)}
                 className="bg-red-500 hover:bg-red-700 active:bg-red-800"
               >
-                <button>Remover</button>
+                Remover
               </Botao>
             </Quadro>
           ))}
@@ -102,8 +148,12 @@ export default function Carros() {
 
         {/*lado direito*/}
         <div className="flex flex-col justify-start mx-auto text-center pt-1 min-w-[550px] bg-neutral-700 min-h-full rounded">
-          <Titulo className="w-full mx-auto">Adicionar Carro</Titulo>
-          <Formulario onSubmit={handleSubmitNovoCarro}>
+          <Titulo className="w-full mx-auto">
+            {modoEdicao ? "Editar Carro" : "AdicionarCarro"}
+          </Titulo>
+          <Formulario
+            onSubmit={modoEdicao ? confirmarEdicao : handleSubmitNovoCarro}
+          >
             <Quadro className="my-1 mx-auto min-w-[250px]">
               <input
                 type="text"
@@ -141,9 +191,27 @@ export default function Carros() {
                 placeholder="Disponibilidade"
               />
             </Quadro>
-
             <Quadro className="my-1 mx-auto min-w-[250px]">
-              <button type="submit">Adicionar Carro</button>
+              <Botao
+                className={
+                  modoEdicao
+                    ? "bg-blue-400 hover:bg-blue-700 active:bg-blue-900"
+                    : "bg-green-400 hover:bg-green-700 active:bg-green-900"
+                }
+                type="submit"
+              >
+                {modoEdicao ? "Confirmar Edição" : "Adicionar Carro"}
+              </Botao>
+              <Botao
+                className={
+                  modoEdicao
+                    ? "bg-red-500 hover:bg-red-700 active:bg-red-800"
+                    : "hidden"
+                }
+                onClick={sairEdicao}
+              >
+                Cancelar
+              </Botao>
             </Quadro>
           </Formulario>
         </div>

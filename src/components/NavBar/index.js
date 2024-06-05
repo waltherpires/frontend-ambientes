@@ -40,9 +40,9 @@ const NavBar = () => {
                   Contato
                 </Link>
               </li>
-              <li className="hidden">
-                <Link to="/oficina" className="hover:text-gray-300">
-                  Oficina
+              <li>
+                <Link to="/pilares" className="hover:text-gray-300">
+                  Pilares
                 </Link>
               </li>
               <li className="hidden">

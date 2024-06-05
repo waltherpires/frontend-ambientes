@@ -1,21 +1,151 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import Quadro from "../../components/Quadro";
 import Titulo from "../../components/Titulo";
-import Swr from "../../components/SWR";
+import axios from "../../services/axios";
+import Formulario from "./style";
+import Botao from "../../components/Botao";
 
 export default function Carros() {
+  const [carros, setCarros] = useState([]);
+  const [novoCarro, setNovoCarro] = useState({
+    Modelo: "",
+    Marca: "",
+    Ano: "",
+    Placa: "",
+    Disponibilidade: "",
+  });
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await axios.get("/veiculos");
+      setCarros(response.data);
+    } catch (error) {
+      console.error("Erro ao carregar veículos:", error);
+    }
+  };
+
+  const handleChangeNovoCarro = (e) => {
+    const { name, value } = e.target;
+    setNovoCarro((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const deletarCarro = async (id) => {
+    try {
+      await axios.delete(`/veiculos/${id}`);
+    } catch (error) {
+      console.error("Erro ao deletar carro", error);
+    }
+
+    getData();
+  };
+
+  const handleSubmitNovoCarro = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/veiculos", novoCarro);
+      console.log("Cheguei ate aqui");
+      setNovoCarro({
+        Modelo: "",
+        Marca: "",
+        Ano: "",
+        Placa: "",
+        Disponibilidade: "",
+      });
+
+      getData();
+    } catch (error) {
+      console.error("Erro ao adicionar novo carro", error);
+    }
+  };
+
   return (
     <main className="bg-neutral-900">
       <div className="container pt-1 flex flex-row justity-between items-stretch mx-auto">
         {/*lado esquerdo*/}
         <div className="flex flex-col justify-between break-after-column mx-auto text-center pt-1 bg-neutral-700 min-w-[550px] min-h-full rounded">
           <Titulo className="w-full mx-auto">Carros</Titulo>
-          <Swr />
+          {carros.map((carro, index) => (
+            <Quadro
+              className="my-1 mx-auto min-w-[250px] "
+              key={String(carro.ID)}
+            >
+              <p>Marca: {carro.Marca}</p>
+              <p>Modelo: {carro.Modelo}</p>
+              <p>Ano: {carro.Ano}</p>
+              <p>Placa: {carro.Placa}</p>
+              <p>
+                Disponibilidade:{" "}
+                {carro.Disponibilidade === 1
+                  ? "Disponivel"
+                  : carro.Disponibilidade}
+              </p>
+              <Botao className="bg-sky-900">
+                <button>Editar</button>
+              </Botao>
+              <Botao
+                onClick={() => deletarCarro(carro.ID)}
+                className="bg-red-500 hover:bg-red-700 active:bg-red-800"
+              >
+                <button>Remover</button>
+              </Botao>
+            </Quadro>
+          ))}
         </div>
 
         {/*lado direito*/}
-        <div className="flex flex-col justify-between mx-auto text-center pt-1 min-w-[550px] bg-neutral-700 min-h-full rounded">
-          <Titulo className="w-full mx-auto">Info</Titulo>
+        <div className="flex flex-col justify-start mx-auto text-center pt-1 min-w-[550px] bg-neutral-700 min-h-full rounded">
+          <Titulo className="w-full mx-auto">Adicionar Carro</Titulo>
+          <Formulario onSubmit={handleSubmitNovoCarro}>
+            <Quadro className="my-1 mx-auto min-w-[250px]">
+              <input
+                type="text"
+                name="Marca"
+                value={novoCarro.Marca}
+                onChange={handleChangeNovoCarro}
+                placeholder="Marca"
+              />
+              <input
+                type="text"
+                name="Modelo"
+                value={novoCarro.Modelo}
+                onChange={handleChangeNovoCarro}
+                placeholder="Modelo"
+              />
+              <input
+                type="number"
+                name="Ano"
+                value={novoCarro.Ano}
+                onChange={handleChangeNovoCarro}
+                placeholder="Ano"
+              />
+              <input
+                type="text"
+                name="Placa"
+                value={novoCarro.Placa}
+                onChange={handleChangeNovoCarro}
+                placeholder="Placa"
+              />
+              <input
+                type="text"
+                name="Disponibilidade"
+                value={novoCarro.Disponibilidade}
+                onChange={handleChangeNovoCarro}
+                placeholder="Disponibilidade"
+              />
+            </Quadro>
+
+            <Quadro className="my-1 mx-auto min-w-[250px]">
+              <button type="submit">Adicionar Carro</button>
+            </Quadro>
+          </Formulario>
         </div>
       </div>
     </main>

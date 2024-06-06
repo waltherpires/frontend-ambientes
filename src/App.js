@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import QuemSomos from "./pages/QuemSomos";
 import Carros from "./pages/Carros";
 import Pilares from "./pages/Pilares";
+import Contato from "./pages/Contato";
 
 import "./App.css";
 import NavBar from "./components/NavBar";
@@ -17,6 +18,7 @@ function App() {
         <Route path="quemsomos" element={<QuemSomos />} />
         <Route path="carros" element={<Carros />} />
         <Route path="pilares" element={<Pilares />} />
+        <Route path="contato" element={<Contato />} />
       </Routes>
     </Router>
   );

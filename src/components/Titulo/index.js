@@ -9,6 +9,10 @@ const Titulo = styled.div`
 
   font-size: 1.2em;
   text-align: center;
+
+  p {
+    font-size: 2em;
+  }
 `;
 
 export default Titulo;
